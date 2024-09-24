@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Aries",
+    "prediction": "Hoy es un buen día para comenzar nuevos proyectos. Tus niveles de energía están altos.",
+    "image": "../assets/aries.jpg"
+  },
+  {
+    "name": "Tauro",
+    "prediction": "Podrías enfrentar algunos desafíos hoy, pero mantén la calma y la paciencia.",
+    "image": "../assets/tauro.jpg"
+  },
+  {
+    "name": "Géminis",
+    "prediction": "La comunicación es clave hoy. Contacta a viejos amigos.",
+    "image": "../assets/geminis.jpg"
+  },
+  {
+    "name": "Cáncer",
+    "prediction": "Enfócate en tu hogar y familia. Necesitan tu atención.",
+    "image": "../assets/cancer.jpg"
+  },
+  {
+    "name": "Leo",
+    "prediction": "Tus habilidades de liderazgo serán puestas a prueba. Brilla con fuerza.",
+    "image": "../assets/leo.jpg"
+  },
+  {
+    "name": "Virgo",
+    "prediction": "Presta atención a los detalles. Harán una gran diferencia.",
+    "image": "../assets/virgo.jpg"
+  },
+  {
+    "name": "Libra",
+    "prediction": "El equilibrio es crucial hoy. No te comprometas demasiado.",
+    "image": "../assets/libra.jpg"
+  },
+  {
+    "name": "Escorpio",
+    "prediction": "Tu intuición es fuerte hoy. Confía en tus corazonadas.",
+    "image": "../assets/escorpio.jpg"
+  },
+  {
+    "name": "Sagitario",
+    "prediction": "La aventura te espera. Sé abierto a nuevas experiencias.",
+    "image": "../assets/sagitario.jpg"
+  },
+  {
+    "name": "Capricornio",
+    "prediction": "El trabajo duro dará sus frutos. Mantente enfocado en tus metas.",
+    "image": "../assets/capricornio.jpg"
+  },
+  {
+    "name": "Acuario",
+    "prediction": "La innovación es tu fortaleza. Piensa de manera diferente.",
+    "image": "../assets/acuario.jpg"
+  },
+  {
+    "name": "Piscis",
+    "prediction": "La creatividad fluye a través de ti. Exprésate artísticamente.",
+    "image": "../assets/piscis.jpg"
+  }
+]
