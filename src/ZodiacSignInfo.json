@@ -1,62 +1,86 @@
 [
   {
     "name": "Aries",
-    "prediction": "Hoy es un buen día para comenzar nuevos proyectos. Tus niveles de energía están altos.",
-    "image": "../assets/aries.jpg"
+    "startDate": "03-21",
+    "endDate": "04-19",
+    "prediction": "Tendrás un día lleno de energía y entusiasmo.",
+    "image": "./assets/aries.jpg"
   },
   {
     "name": "Tauro",
-    "prediction": "Podrías enfrentar algunos desafíos hoy, pero mantén la calma y la paciencia.",
-    "image": "../assets/tauro.jpg"
+    "startDate": "04-20",
+    "endDate": "05-20",
+    "prediction": "Hoy sentirás la necesidad de estabilidad y seguridad.",
+    "image": "./assets/tauro.jpg"
   },
   {
     "name": "Géminis",
-    "prediction": "La comunicación es clave hoy. Contacta a viejos amigos.",
-    "image": "../assets/geminis.jpg"
+    "startDate": "05-21",
+    "endDate": "06-20",
+    "prediction": "Un día ideal para comunicarte y aprender cosas nuevas.",
+    "image": "./assets/geminis.jpg"
   },
   {
     "name": "Cáncer",
-    "prediction": "Enfócate en tu hogar y familia. Necesitan tu atención.",
-    "image": "../assets/cancer.jpg"
+    "startDate": "06-21",
+    "endDate": "07-22",
+    "prediction": "Hoy sentirás una gran conexión emocional con tu entorno.",
+    "image": "./assets/cancer.jpg"
   },
   {
     "name": "Leo",
-    "prediction": "Tus habilidades de liderazgo serán puestas a prueba. Brilla con fuerza.",
-    "image": "../assets/leo.jpg"
+    "startDate": "07-23",
+    "endDate": "08-22",
+    "prediction": "Te espera un día lleno de creatividad y liderazgo.",
+    "image": "./assets/leo.jpg"
   },
   {
     "name": "Virgo",
-    "prediction": "Presta atención a los detalles. Harán una gran diferencia.",
-    "image": "../assets/virgo.jpg"
+    "startDate": "08-23",
+    "endDate": "09-22",
+    "prediction": "La atención al detalle será tu mejor herramienta hoy.",
+    "image": "./assets/virgo.jpg"
   },
   {
     "name": "Libra",
-    "prediction": "El equilibrio es crucial hoy. No te comprometas demasiado.",
-    "image": "../assets/libra.jpg"
+    "startDate": "09-23",
+    "endDate": "10-22",
+    "prediction": "El equilibrio y la armonía marcarán tu día.",
+    "image": "./assets/libra.jpg"
   },
   {
     "name": "Escorpio",
-    "prediction": "Tu intuición es fuerte hoy. Confía en tus corazonadas.",
-    "image": "../assets/escorpio.jpg"
+    "startDate": "10-23",
+    "endDate": "11-21",
+    "prediction": "Un día lleno de intensidad emocional y pasión.",
+    "image": "./assets/escorpio.jpg"
   },
   {
     "name": "Sagitario",
-    "prediction": "La aventura te espera. Sé abierto a nuevas experiencias.",
-    "image": "../assets/sagitario.jpg"
+    "startDate": "11-22",
+    "endDate": "12-21",
+    "prediction": "Hoy es un buen día para explorar nuevas ideas y horizontes.",
+    "image": "./assets/sagitario.jpg"
   },
   {
     "name": "Capricornio",
-    "prediction": "El trabajo duro dará sus frutos. Mantente enfocado en tus metas.",
-    "image": "../assets/capricornio.jpg"
+    "startDate": "12-22",
+    "endDate": "01-19",
+    "prediction": "La disciplina y el esfuerzo te llevarán lejos hoy.",
+    "image": "./assets/capricornio.jpg"
   },
   {
     "name": "Acuario",
-    "prediction": "La innovación es tu fortaleza. Piensa de manera diferente.",
-    "image": "../assets/acuario.jpg"
+    "startDate": "01-20",
+    "endDate": "02-18",
+    "prediction": "Tu originalidad y pensamiento independiente destacarán.",
+    "image": "./assets/acuario.jpg"
   },
   {
     "name": "Piscis",
-    "prediction": "La creatividad fluye a través de ti. Exprésate artísticamente.",
-    "image": "../assets/piscis.jpg"
+    "startDate": "02-19",
+    "endDate": "03-20",
+    "prediction": "Un día para conectarte con tus emociones y la intuición.",
+    "image": "./assets/piscis.jpg"
   }
 ]
