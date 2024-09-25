@@ -1,5 +1,17 @@
 import React, { useState } from "react";
 import zodiacSigns from "../ZodiacSignInfo.json"; // Asegúrate de ajustar la ruta
+import Acuario from "../assets/acuario.jpg";
+import Aries from "../assets/aries.jpg";
+import Cancer from "../assets/cancer.jpg";
+import Capricornio from "../assets/capricornio.jpg";
+import Escorpio from "../assets/escorpio.jpg";
+import Geminis from "../assets/geminis.jpg";
+import Leo from "../assets/leo.jpg";
+import Libra from "../assets/libra.jpg";
+import Piscis from "../assets/piscis.jpg";
+import Sagitario from "../assets/sagitario.jpg";
+import Tauro from "../assets/tauro.jpg";
+import Virgo from "../assets/virgo.jpg";
 
 interface ZodiacSign {
   name: string;
@@ -13,6 +25,21 @@ const CardDate = () => {
   const [birthdate, setBirthdate] = useState<string>("");
   const [zodiacSign, setZodiacSign] = useState<ZodiacSign | null>(null);
 
+  const zodiacImages: { [key: string]: string } = {
+    Acuario: Acuario,
+    Aries: Aries,
+    Cáncer: Cancer,
+    Capricornio: Capricornio,
+    Escorpio: Escorpio,
+    Géminis: Geminis,
+    Leo: Leo,
+    Libra: Libra,
+    Piscis: Piscis,
+    Sagitario: Sagitario,
+    Tauro: Tauro,
+    Virgo: Virgo,
+  };
+
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBirthdate(e.target.value);
   };
@@ -21,19 +48,35 @@ const CardDate = () => {
     e.preventDefault();
     if (birthdate) {
       const sign = calculateZodiacSign(birthdate);
+      sign.image = zodiacImages[sign.name];
 
       setZodiacSign(sign || null);
     }
   };
 
   const calculateZodiacSign = (birthdate: string) => {
-    const [year, month, day] = birthdate.split("-").map(Number); // Extraemos el mes y el día
-    const birthMonthDay = `${month}-${day}`; // Formateamos a MM-DD
+    const [year, month, day] = birthdate.split("-").map(Number);
 
-    // Busca el signo en el archivo ZodiacSignInfo.json
+    // Convert birthdate to a Date object
+    const birthDateObject = new Date(year, month - 1, day); // JavaScript's Date months are 0-based
+
     return zodiacSigns.find((sign) => {
-      const { startDate, endDate } = sign; // startDate y endDate deben estar en formato MM-DD
-      return birthMonthDay >= startDate && birthMonthDay <= endDate;
+      const [startMonth, startDay] = sign.startDate.split("-").map(Number);
+      const [endMonth, endDay] = sign.endDate.split("-").map(Number);
+
+      // Create Date objects for start and end dates (use the same year as the birthdate for comparison)
+      const startDateObject = new Date(year, startMonth - 1, startDay);
+      const endDateObject = new Date(year, endMonth - 1, endDay);
+
+      // If the zodiac sign spans across the year boundary, adjust the endDateObject to next year
+      if (startDateObject > endDateObject) {
+        endDateObject.setFullYear(endDateObject.getFullYear() + 1);
+      }
+
+      // Check if the birthdate falls within the zodiac sign's date range
+      return (
+        birthDateObject >= startDateObject && birthDateObject <= endDateObject
+      );
     });
   };
 
