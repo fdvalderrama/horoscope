@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import zodiacSigns from "../ZodiacSignInfo.json"; // Asegúrate de ajustar la ruta
+import zodiacSigns from "../ZodiacSignInfo.json";
+import ZodiacForm from "./ZodiacForm";
+import ZodiacResult from "./ZodiacResult";
 import Acuario from "../assets/acuario.jpg";
 import Aries from "../assets/aries.jpg";
 import Cancer from "../assets/cancer.jpg";
@@ -22,7 +24,6 @@ interface ZodiacSign {
 }
 
 const CardDate = () => {
-  const [birthdate, setBirthdate] = useState<string>("");
   const [zodiacSign, setZodiacSign] = useState<ZodiacSign | null>(null);
 
   const zodiacImages: { [key: string]: string } = {
@@ -40,82 +41,36 @@ const CardDate = () => {
     Virgo: Virgo,
   };
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBirthdate(e.target.value);
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (birthdate) {
-      const sign = calculateZodiacSign(birthdate);
-      sign.image = zodiacImages[sign.name];
-
-      setZodiacSign(sign || null);
-    }
-  };
-
   const calculateZodiacSign = (birthdate: string) => {
     const [year, month, day] = birthdate.split("-").map(Number);
+    const birthDateObject = new Date(year, month - 1, day);
 
-    // Convert birthdate to a Date object
-    const birthDateObject = new Date(year, month - 1, day); // JavaScript's Date months are 0-based
-
-    return zodiacSigns.find((sign) => {
+    const sign = zodiacSigns.find((sign) => {
       const [startMonth, startDay] = sign.startDate.split("-").map(Number);
       const [endMonth, endDay] = sign.endDate.split("-").map(Number);
 
-      // Create Date objects for start and end dates (use the same year as the birthdate for comparison)
       const startDateObject = new Date(year, startMonth - 1, startDay);
       const endDateObject = new Date(year, endMonth - 1, endDay);
 
-      // If the zodiac sign spans across the year boundary, adjust the endDateObject to next year
       if (startDateObject > endDateObject) {
         endDateObject.setFullYear(endDateObject.getFullYear() + 1);
       }
 
-      // Check if the birthdate falls within the zodiac sign's date range
       return (
         birthDateObject >= startDateObject && birthDateObject <= endDateObject
       );
     });
+
+    if (sign) {
+      sign.image = zodiacImages[sign.name];
+      setZodiacSign(sign);
+    }
   };
 
   return (
     <div className="card">
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex flex-col space-y-2 items-center mb-5">
-          <label htmlFor="birthdate" className="text-gray-700 font-medium">
-            Fecha de Nacimiento
-          </label>
-          <input
-            id="birthdate"
-            type="date"
-            value={birthdate}
-            onChange={handleDateChange}
-            className="w-80 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2 text-gray-700"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-32 bg-black text-white font-semibold py-2 rounded-lg shadow hover:bg-indigo-600 transition duration-300"
-        >
-          Generar
-        </button>
-      </form>
-
-      {zodiacSign && (
-        <div className="mt-5 flex flex-col items-center bg-violet-200 rounded-lg shadow-lg p-5">
-          <h2 className="text-3xl font-bold mb-10">{zodiacSign.name}</h2>
-          <div className="flex items-center mb-10">
-            <img
-              src={zodiacSign.image}
-              alt={zodiacSign.name}
-              className="h-60 object-cover rounded-lg mr-20"
-            />
-            <p className="text-lg text-gray-700">{zodiacSign.prediction}</p>
-          </div>
-        </div>
-      )}
+      <ZodiacForm onDateSubmit={calculateZodiacSign} />
+      <ZodiacResult zodiacSign={zodiacSign} />
     </div>
   );
 };
