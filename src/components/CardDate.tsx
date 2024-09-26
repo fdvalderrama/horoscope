@@ -104,14 +104,16 @@ const CardDate = () => {
       </form>
 
       {zodiacSign && (
-        <div className="mt-5">
-          <h2 className="text-xl font-bold">{zodiacSign.name}</h2>
-          <p>{zodiacSign.prediction}</p>
-          <img
-            src={zodiacSign.image}
-            alt={zodiacSign.name}
-            className="w-20 h-20"
-          />
+        <div className="mt-5 flex flex-col items-center bg-violet-200 rounded-lg shadow-lg p-5">
+          <h2 className="text-3xl font-bold mb-10">{zodiacSign.name}</h2>
+          <div className="flex items-center mb-10">
+            <img
+              src={zodiacSign.image}
+              alt={zodiacSign.name}
+              className="h-60 object-cover rounded-lg mr-20"
+            />
+            <p className="text-lg text-gray-700">{zodiacSign.prediction}</p>
+          </div>
         </div>
       )}
     </div>
